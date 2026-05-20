@@ -16,4 +16,8 @@ Rails.application.routes.draw do
 
   # ======== QUEST 2: ========
   # Тут тоже ничего не нужно добавлять, вся работа будет в app/models и app/helpers.
+
+  # ======== QUEST 3: ========
+  # Добавь сюда маршруты для Quest3AccessGateController.
+  # В квесте понадобятся разные HTTP-глаголы, редиректы и callback'и в контроллере.
 end
