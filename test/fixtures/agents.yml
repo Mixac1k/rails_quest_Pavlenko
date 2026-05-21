@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  codename: "007"
+  level: 7
+  active: true
+
+two:
+  codename: "008"
+  level: 3
+  active: false
