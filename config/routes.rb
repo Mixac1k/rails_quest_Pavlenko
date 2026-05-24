@@ -28,4 +28,5 @@ Rails.application.routes.draw do
   post "/access_gate/verify", to: "quest3_access_gate#verify"
   get "/access_gate/granted", to: "quest3_access_gate#granted", as: :granted
   get "/access_gate/denied", to: "quest3_access_gate#denied", as: :denied
+  
 end

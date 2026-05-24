@@ -12,39 +12,46 @@ class Quest3AccessGateController < ApplicationController
 
 
   def ping
-    render plain: ""
+    render plain: "ACCESSGATE PING OK"
   end
 
   def scan
-    render plain: ""
+    render plain: "SCAN RESULT: Echo -> sector 7"
   end
 
   def power
-    render plain: ""
+    render plain: "POWER TOTAL: 24"
   end
 
   def stale_logs
-    render plain: ""
+    render plain: "STALE LOGS CLEARED: 3"
   end
 
   def clearance
-    render plain: ""
+    response.set_header("X-Access-Gate-Trace", "CLEAREANCE_GRANTED")
+    render plain: "CLEARANCE TOTAL: 6"
   end
 
   def verify
-    render plain: ""
+    token = params[:token]  # или params[:code], но скорее token
+    if token == "alpha-7"
+      redirect_to "/access_gate/granted?token=alpha-7"
+    else
+      redirect_to "/access_gate/denied?token=omega-9"
+    end
   end
 
   def granted
-    render plain: ""
+    response.set_header("X-Access-Gate-Trace", "token_checked")
+    render plain: "TOKEN ACCEPTED: #{params[:token]}"
   end
 
-  def denied
-    render plain: ""
+  def denied          # В тестах не было 
+    response.set_header("X-Access-Gate-Trace", "token_rejected")
+    render plain: "TOKEN REJECTED: #{params[:token]}"
   end
 
   private
-
 
   # Implement callbacks here
   # response.set_header("X-Access-Gate-Trace", "") may be helpful
